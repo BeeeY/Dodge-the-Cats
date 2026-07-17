@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://df82fcw5fkamj"]
+
+[ext_resource type="Script" uid="uid://b1hol100m24ue" path="res://mob.gd" id="1_1qmh0"]
+[ext_resource type="Texture2D" uid="uid://bo2w73igwcacx" path="res://Cat Walking Sprites/New Piskel-1.png.png" id="2_1qmh0"]
+[ext_resource type="Texture2D" uid="uid://bfiaqjofw1bns" path="res://Cat Walking Sprites/New Piskel-2.png.png" id="3_gfurk"]
+[ext_resource type="Texture2D" uid="uid://jduy07386yw0" path="res://Cat Walking Sprites/New Piskel-3.png.png" id="4_ieysi"]
+[ext_resource type="Texture2D" uid="uid://bnc4ib78viu8n" path="res://Cat Walking Sprites/New Piskel-4.png.png" id="5_cixyi"]
+[ext_resource type="Texture2D" uid="uid://cvtky2ywdpob" path="res://Cat Walking Sprites/New Piskel-5.png.png" id="6_7ulmv"]
+[ext_resource type="Texture2D" uid="uid://uqnodiwt04n5" path="res://Cat Walking Sprites/New Piskel-6.png.png" id="7_pcqmr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_glgfw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1qmh0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_gfurk")
+}],
+"loop": 1,
+"name": &"fly",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ieysi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_cixyi")
+}],
+"loop": 1,
+"name": &"swim",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_7ulmv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_pcqmr")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ra5af"]
+radius = 40.0
+height = 152.0
+
+[node name="Mob" type="RigidBody2D" unique_id=916898158 groups=["mobs"]]
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_1qmh0")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=176601714]
+position = Vector2(-1.2313638, 0)
+scale = Vector2(0.15, 0.15)
+sprite_frames = SubResource("SpriteFrames_glgfw")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1006847558]
+rotation = 4.712389
+shape = SubResource("CapsuleShape2D_ra5af")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=33180752]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

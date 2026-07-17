@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://b0chseys58kkt"]
+
+[ext_resource type="Script" uid="uid://cv46mn85ga6h6" path="res://player.gd" id="1_sweqy"]
+[ext_resource type="Texture2D" uid="uid://cqbusfi7f1ff2" path="res://Mouse Sprites/New Piskel-3.png.png" id="2_sweqy"]
+[ext_resource type="Texture2D" uid="uid://4xjksfrrxnlq" path="res://Mouse Sprites/New Piskel-4.png.png" id="3_1jxqw"]
+[ext_resource type="Texture2D" uid="uid://d25b211dmocn6" path="res://Mouse Sprites/New Piskel-1.png.png" id="4_sweqy"]
+[ext_resource type="Texture2D" uid="uid://bidhp8x81cgry" path="res://Mouse Sprites/New Piskel-2.png.png" id="5_2hs0m"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_glgfw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_sweqy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1jxqw")
+}],
+"loop": 1,
+"name": &"up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_sweqy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2hs0m")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n7ghd"]
+radius = 21.0
+height = 80.0
+
+[node name="Player" type="Area2D" unique_id=2032437610]
+position = Vector2(12, 24)
+script = ExtResource("1_sweqy")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=826171039]
+scale = Vector2(0.12, 0.12)
+sprite_frames = SubResource("SpriteFrames_glgfw")
+animation = &"up"
+
+[node name="CollisionShapeWalk" type="CollisionShape2D" parent="." unique_id=1870631433]
+position = Vector2(-3, 14)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_n7ghd")
+
+[node name="CollisionShapeUp" type="CollisionShape2D" parent="." unique_id=1750133439]
+position = Vector2(-2, -3)
+shape = SubResource("CapsuleShape2D_n7ghd")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

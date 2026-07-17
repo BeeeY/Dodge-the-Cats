@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://blbxtbtyabrmi"]
+
+[ext_resource type="FontFile" uid="uid://b0ip6pguklini" path="res://dodge_the_creeps_2d_assets/fonts/Xolonium-Regular.ttf" id="1_37p78"]
+[ext_resource type="Script" uid="uid://cslce28b8m71u" path="res://hud.gd" id="1_64ctp"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1973628342]
+script = ExtResource("1_64ctp")
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=152114404]
+offset_left = 224.0
+offset_top = 16.0
+offset_right = 264.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("1_37p78")
+text = "0"
+horizontal_alignment = 1
+
+[node name="Message" type="Label" parent="." unique_id=926448044]
+custom_minimum_size = Vector2(480, 0)
+offset_top = 40.0
+offset_right = 480.0
+offset_bottom = 96.0
+theme_override_fonts/font = ExtResource("1_37p78")
+text = "Dodge the Cats"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="StartButton" type="Button" parent="." unique_id=346430628]
+offset_left = 139.0
+offset_top = 183.0
+offset_right = 347.0
+offset_bottom = 283.0
+theme_override_fonts/font = ExtResource("1_37p78")
+text = "Start"
+
+[node name="MessageTimer" type="Timer" parent="." unique_id=1064708659]
+wait_time = 2.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=2143677541]
+offset_left = 118.0
+offset_top = 55.0
+offset_right = 366.0
+offset_bottom = 199.0
+theme_override_colors/table_border = Color(0.95428795, 0.9181279, 0.7704509, 0)
+theme_override_fonts/normal_font = ExtResource("1_37p78")
+theme_override_font_sizes/normal_font_size = 14
+text = "You're a mouse and many cats have inexplicably appeared. Avoid getting eaten for as long as you can! >:3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]
