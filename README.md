@@ -1,6 +1,6 @@
 # Dodge the Cats
 
-A game where you are a mouse trying not to get eaten. Cats appear on screen and the objective is to not touch them, which kills you, use wasd or arrow keys to stay alive for as long as possible. Made with help from the godot 2D first game tutorial.
+A game where you are a mouse trying not to get eaten. Cats appear on screen and the objective is to not touch them, which kills you, use wasd or arrow keys to stay alive for as long as possible. 
 
 Demo : https://meek-choux-82cd55.netlify.app/
 
