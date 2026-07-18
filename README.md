@@ -4,6 +4,7 @@ A game where you are a mouse trying not to get eaten. Cats appear on screen and 
 
 Demo : https://meek-choux-82cd55.netlify.app/
 
+![alt text](https://github.com/BeeeY/Dodge-the-Cats/blob/main/Screenshot%202026-07-17%20115516.png)
 ## Built With
 Game-Godot and gdscript
 
